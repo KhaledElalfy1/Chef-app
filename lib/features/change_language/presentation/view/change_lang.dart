@@ -1,10 +1,11 @@
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/features/change_language/presentation/view/widgets/choose_languade_button.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:chef_app/core/locale/app_locale.dart';
+
 class ChangeLanguage extends StatelessWidget {
   const ChangeLanguage({super.key});
 
@@ -42,9 +43,9 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (16 / 812),
               ),
-              const Text(
-                'Welcome To Chef App',
-                style: TextStyle(
+              Text(
+                'WelcomeToChefApp'.tr(context),
+                style:const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                 ),
@@ -70,14 +71,11 @@ class ChangeLanguage extends StatelessWidget {
               ),
             ],
           ),
-          
         ],
       ),
     );
   }
 }
-
-
 
 class ClipBigContainer extends CustomClipper<Path> {
   @override
