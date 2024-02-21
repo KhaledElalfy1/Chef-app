@@ -16,10 +16,10 @@ class ChangeLanguage extends StatelessWidget {
       body: Stack(
         children: [
           ClipPath(
-            clipper: ClipBigContainer(),
+            clipper: ClipBiggerContainer(),
             child: Container(
               width: double.infinity,
-              height: 750.h,
+              height: 800.h,
               color: AppColor.primary.withOpacity(.5),
             ),
           ),
@@ -46,7 +46,7 @@ class ChangeLanguage extends StatelessWidget {
               ),
               Text(
                 AppStrings.welcomeToChefApp.tr(context),
-                style:const TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                 ),
@@ -54,9 +54,9 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (54 / 812),
               ),
-               Text(
+              Text(
                 AppStrings.pleaseChooseYourLanguage.tr(context),
-                style:const TextStyle(
+                style: const TextStyle(
                   fontSize: 26,
                 ),
               ),
@@ -96,6 +96,27 @@ class ClipBigContainer extends CustomClipper<Path> {
         size.height * 0.8906773);
     path_0.quadraticBezierTo(size.width * -0.0020000, size.height * 1.0214286,
         0, size.height * 0.9554187);
+    return path_0;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
+
+class ClipBiggerContainer extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(0, 0);
+    path_0.lineTo(size.width, 0);
+    path_0.lineTo(size.width, size.height * 0.7967980);
+    path_0.quadraticBezierTo(size.width * 0.4725333, size.height * 0.9007635,
+        size.width * 0.0008800, size.height * 0.7793350);
+    path_0.quadraticBezierTo(size.width * 0.0028000, size.height * 0.8288300, 0,
+        size.height * 0.8620690);
+
     return path_0;
   }
 
