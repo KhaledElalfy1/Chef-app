@@ -1,11 +1,10 @@
 import 'package:chef_app/core/global_controller/cubit/language_cubit.dart';
-import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/widgets/lang_text_cubit.dart';
 import 'package:chef_app/features/change_language/presentation/view/widgets/choose_languade_button.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,9 +46,9 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (16 / 812),
               ),
-               Text(
-                 AppStrings.welcomeToChefApp.tr(context),
-                style:const TextStyle(
+              const CubitText(
+                data: AppStrings.welcomeToChefApp,
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                 ),
@@ -57,36 +56,33 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (54 / 812),
               ),
-              Text(
-                 AppStrings.pleaseChooseYourLanguage.tr(context),
-                style:const TextStyle(
+              const CubitText(
+                data: AppStrings.pleaseChooseYourLanguage,
+                style: TextStyle(
                   fontSize: 26,
                 ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * (120 / 812),
               ),
-              BlocBuilder<LanguageCubit, LanguageState>(
-                builder: (context, state) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    textDirection: TextDirection.ltr,
-                    children: [
-                      ChooseLanguageButton(
-                          onPressed: () {
-                            LanguageCubit.get(context)
-                                .changeLanguage(Language.english);
-                          },
-                          text: 'English'),
-                      ChooseLanguageButton(
-                          onPressed: () {
-                            LanguageCubit.get(context)
-                                .changeLanguage(Language.arabic);
-                          },
-                          text: 'العربية'),
-                    ],
-                  );
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                textDirection: TextDirection.ltr,
+                children: [
+                  ChooseLanguageButton(
+                      onPressed: () {
+                        LanguageCubit.get(context)
+                            .changeLanguage(Language.english);
+                      },
+                      text: 'English'),
+                  ChooseLanguageButton(
+                      onPressed: () {
+                        LanguageCubit.get(context)
+                            .changeLanguage(Language.arabic);
+                      },
+                      text: 'العربية'),
+                      
+                ],
               ),
             ],
           ),
