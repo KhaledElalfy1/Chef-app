@@ -12,4 +12,19 @@ class CacheHelper {
   }) {
     return sharedPreferences.getString(key);
   }
+
+  final String _cachedCode = "cachedCode";
+
+  String getCachedLanguage() {
+    final code = sharedPreferences.getString(_cachedCode);
+    if (code != null) {
+      return code;
+    } else {
+      return 'ar';
+    }
+  }
+
+  Future<void> cacheLanguage(String code) async {
+    await sharedPreferences.setString(_cachedCode, code);
+  }
 }

@@ -1,23 +1,27 @@
+import 'package:chef_app/core/global_controller/cubit/language_cubit.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
+import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/widgets/lang_text_cubit.dart';
 import 'package:chef_app/features/change_language/presentation/view/widgets/choose_languade_button.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ChangeLanguage extends StatelessWidget {
   const ChangeLanguage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    print('Build widget');
     return Scaffold(
       body: Stack(
         children: [
           ClipPath(
-            clipper: ClipBigContainer(),
+            clipper: ClipBiggerContainer(),
             child: Container(
               width: double.infinity,
-              height: 750.h,
+              height: 800.h,
               color: AppColor.primary.withOpacity(.5),
             ),
           ),
@@ -42,8 +46,8 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (16 / 812),
               ),
-              const Text(
-                'Welcome To Chef App',
+              const CubitText(
+                data: AppStrings.welcomeToChefApp,
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
@@ -52,8 +56,8 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (54 / 812),
               ),
-              const Text(
-                'Please choose your language ',
+              const CubitText(
+                data: AppStrings.pleaseChooseYourLanguage,
                 style: TextStyle(
                   fontSize: 26,
                 ),
@@ -63,21 +67,30 @@ class ChangeLanguage extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                textDirection: TextDirection.ltr,
                 children: [
-                  ChooseLanguageButton(onPressed: () {}, text: 'English'),
-                  ChooseLanguageButton(onPressed: () {}, text: 'العربية'),
+                  ChooseLanguageButton(
+                      onPressed: () {
+                        LanguageCubit.get(context)
+                            .changeLanguage(Language.english);
+                      },
+                      text: 'English'),
+                  ChooseLanguageButton(
+                      onPressed: () {
+                        LanguageCubit.get(context)
+                            .changeLanguage(Language.arabic);
+                      },
+                      text: 'العربية'),
+                      
                 ],
               ),
             ],
           ),
-          
         ],
       ),
     );
   }
 }
-
-
 
 class ClipBigContainer extends CustomClipper<Path> {
   @override
@@ -97,6 +110,27 @@ class ClipBigContainer extends CustomClipper<Path> {
         size.height * 0.8906773);
     path_0.quadraticBezierTo(size.width * -0.0020000, size.height * 1.0214286,
         0, size.height * 0.9554187);
+    return path_0;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
+
+class ClipBiggerContainer extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(0, 0);
+    path_0.lineTo(size.width, 0);
+    path_0.lineTo(size.width, size.height * 0.7967980);
+    path_0.quadraticBezierTo(size.width * 0.4725333, size.height * 0.9007635,
+        size.width * 0.0008800, size.height * 0.7793350);
+    path_0.quadraticBezierTo(size.width * 0.0028000, size.height * 0.8288300, 0,
+        size.height * 0.8620690);
+
     return path_0;
   }
 
