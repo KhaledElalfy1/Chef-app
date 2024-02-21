@@ -1,4 +1,5 @@
 import 'package:chef_app/core/utils/app_colors.dart';
+import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/features/change_language/presentation/view/widgets/choose_languade_button.dart';
 
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class ChangeLanguage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * (16 / 812),
               ),
               Text(
-                'WelcomeToChefApp'.tr(context),
+                AppStrings.welcomeToChefApp.tr(context),
                 style:const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
@@ -53,9 +54,9 @@ class ChangeLanguage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (54 / 812),
               ),
-              const Text(
-                'Please choose your language ',
-                style: TextStyle(
+               Text(
+                AppStrings.pleaseChooseYourLanguage.tr(context),
+                style:const TextStyle(
                   fontSize: 26,
                 ),
               ),
