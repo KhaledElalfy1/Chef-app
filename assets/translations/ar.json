@@ -2,5 +2,10 @@
     "welcomeToChefApp":"مرحبا بك فى تطبيق الشيف",
     "chefApp":"تطبيق الشيف",
     "pleaseChooseYourLanguage":"من فضلك قم بإختيار اللغة",
-    "welcomeBack":"مرحبا بعودتك"
+    "welcomeBack":"مرحبا بعودتك",
+    "forgetPassword":"هل نسيت كلمة المرور؟",
+    "signIn":"تسجيل دخول",
+    "dontHaveAccount":"ليس لديك حساب؟",
+    "signUp":"إنشاء حساب"
+
 }

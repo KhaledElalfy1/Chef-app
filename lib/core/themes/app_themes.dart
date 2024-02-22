@@ -18,19 +18,22 @@ ThemeData themeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColor.primary,
+        padding: EdgeInsets.symmetric(vertical: 8.h),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        hintStyle: boldStyle(
-          color: AppColor.gray,
-          fontSize: 16,
-        ),
-        enabledBorder: borderDecoration(),
-        focusedBorder: borderDecoration(),
-        errorBorder: borderDecoration(color: AppColor.red),),
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      hintStyle: boldStyle(
+        color: AppColor.gray,
+        fontSize: 16,
+      ),
+      enabledBorder: borderDecoration(),
+      focusedBorder: borderDecoration(),
+      errorBorder: borderDecoration(color: AppColor.red),
+    ),
   );
 }
 

@@ -30,7 +30,7 @@ class ChefApp extends StatelessWidget {
             locale: Locale(LanguageCubit.get(context).lang == Language.english
                 ? 'en'
                 : 'ar'),
-            initialRoute: Routes.signIn,
+            initialRoute: Routes.initRoute,
             onGenerateRoute: AppRouts.generateRoutes,
             theme: themeData(),
             debugShowCheckedModeBanner: false,

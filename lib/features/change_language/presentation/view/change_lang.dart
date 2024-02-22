@@ -1,4 +1,6 @@
 import 'package:chef_app/core/global_controller/cubit/language_cubit.dart';
+import 'package:chef_app/core/helpers/extentions.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
@@ -73,15 +75,16 @@ class ChangeLanguage extends StatelessWidget {
                       onPressed: () {
                         LanguageCubit.get(context)
                             .changeLanguage(Language.english);
+                        context.pushNamed(Routes.signIn);
                       },
                       text: 'English'),
                   ChooseLanguageButton(
                       onPressed: () {
                         LanguageCubit.get(context)
                             .changeLanguage(Language.arabic);
+                        context.pushNamed(Routes.signIn);
                       },
                       text: 'العربية'),
-                      
                 ],
               ),
             ],

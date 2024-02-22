@@ -1,10 +1,11 @@
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/widgets/custom_elevated_button.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:chef_app/features/sign_in/presentation/view/widgets/sign_in_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -12,42 +13,93 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              ClipPath(
-                clipper: ClipBiggerContainer(),
-                child: Container(
-                  width: double.infinity,
-                  height: 250.h,
-                  color: AppColor.primary.withOpacity(.5),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: ListView(
+          children: [
+            Stack(
+              children: [
+                ClipPath(
+                  clipper: ClipBiggerContainer(),
+                  child: Container(
+                    width: double.infinity,
+                    height: 250.h,
+                    color: AppColor.primary.withOpacity(.5),
+                  ),
                 ),
-              ),
-              ClipPath(
-                clipper: ClipBigContainer(),
-                child: Container(
-                  width: double.infinity,
-                  height: 200.h,
-                  color: AppColor.primary.withOpacity(.8),
+                ClipPath(
+                  clipper: ClipBigContainer(),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200.h,
+                    color: AppColor.primary.withOpacity(.8),
+                  ),
                 ),
-              ),
-              Positioned(
-                bottom: 150.h,
-                left: MediaQuery.of(context).size.width * .35,
-                child: const CubitText(
-                  data: AppStrings.welcomeBack,
-                  style: TextStyle(
-                    color: AppColor.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 32,
+                Positioned(
+                  bottom: 150.h,
+                  left: MediaQuery.of(context).size.width * .35,
+                  child: const CubitText(
+                    data: AppStrings.welcomeBack,
+                    style: TextStyle(
+                      color: AppColor.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SignInForm(),
+            Gap(24.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0.w),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const CubitText(
+                    data: AppStrings.forgetPassword,
+                    style: TextStyle(
+                      color: AppColor.gray,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
-          TextFormField(),
-        ],
+            ),
+            Gap(50.h),
+            CustomElevatedButton(
+              onPressed: () {},
+              text: AppStrings.signIn,
+            ),
+            Gap(50.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CubitText(
+                  data: AppStrings.dontHaveAccount,
+                  style: TextStyle(
+                    color: AppColor.gray,
+                    fontSize: 22,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const CubitText(
+                    data: AppStrings.signUp,
+                    style: TextStyle(
+                      color: AppColor.primary,
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
