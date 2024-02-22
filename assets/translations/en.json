@@ -1,6 +1,11 @@
 {
     "welcomeToChefApp":"welcome To Chef App",
     "chefApp":"chef App",
-    "pleaseChooseYourLanguage":"Please Choose Your Language"
+    "pleaseChooseYourLanguage":"Please Choose Your Language",
+    "welcomeBack":"welcome Back",
+    "forgetPassword":"Forget Password?",
+    "signIn":"sign In",
+    "dontHaveAccount":"Don't have an account?",
+    "signUp":"Sign Up"
 
 }
