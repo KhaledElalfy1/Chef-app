@@ -7,4 +7,6 @@ abstract class AppStrings {
   static const String signIn = 'signIn';
   static const String dontHaveAccount = "dontHaveAccount";
   static const String signUp = "signUp";
+  static const String enterValidEmail = "enterValidEmail";
+  static const String enterValidPassword = "enterValidPassword";
 }

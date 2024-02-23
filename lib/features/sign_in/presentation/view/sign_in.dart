@@ -2,6 +2,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
+import 'package:chef_app/features/sign_in/presentation/controller/sign_in/sign_in_cubit.dart';
 import 'package:chef_app/features/sign_in/presentation/view/widgets/sign_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +40,7 @@ class SignIn extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 150.h,
-                  left: MediaQuery.of(context).size.width * .35,
+                  left: MediaQuery.of(context).size.width * .30,
                   child: const CubitText(
                     data: AppStrings.welcomeBack,
                     style: TextStyle(
@@ -72,7 +73,11 @@ class SignIn extends StatelessWidget {
             ),
             Gap(50.h),
             CustomElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if(SignInCubit.get(context).formKey.currentState!.validate()){
+                  
+                }
+              },
               text: AppStrings.signIn,
             ),
             Gap(50.h),
