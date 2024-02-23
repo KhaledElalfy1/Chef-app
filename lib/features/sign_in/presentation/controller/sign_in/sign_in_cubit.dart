@@ -5,7 +5,7 @@ part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitial());
-
+ static SignInCubit get(context) => BlocProvider.of(context);
   final GlobalKey<FormState> formKey = GlobalKey();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

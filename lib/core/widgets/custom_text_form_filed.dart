@@ -19,7 +19,7 @@ class CustomTextFormFiled extends StatelessWidget {
       textAlign: TextAlign.left,
       decoration: InputDecoration(
         hintText: hintText,
-        prefixIcon: iconButton,
+        suffixIcon: iconButton,
       ),
     );
   }
