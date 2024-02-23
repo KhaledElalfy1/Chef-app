@@ -39,7 +39,7 @@ class SignIn extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 150.h,
-                  left: MediaQuery.of(context).size.width * .35,
+                  left: MediaQuery.of(context).size.width * .30,
                   child: const CubitText(
                     data: AppStrings.welcomeBack,
                     style: TextStyle(

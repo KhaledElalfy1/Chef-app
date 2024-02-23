@@ -7,9 +7,11 @@ import 'package:chef_app/features/profile/presentation/view/setting.dart';
 import 'package:chef_app/features/profile/presentation/view/update_profile.dart';
 import 'package:chef_app/features/reset_password/presentation/view/reset_password.dart';
 import 'package:chef_app/features/reset_password/presentation/view/send_code.dart';
+import 'package:chef_app/features/sign_in/presentation/controller/sign_in/sign_in_cubit.dart';
 import 'package:chef_app/features/sign_in/presentation/view/sign_in.dart';
 import 'package:chef_app/features/sign_up/presentation/view/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Routes {
   static const String initRoute = '/';
@@ -75,7 +77,10 @@ class AppRouts {
 
       case Routes.signIn:
         return MaterialPageRoute(
-          builder: (_) => const SignIn(),
+          builder: (_) => BlocProvider(
+            create: (context) => SignInCubit(),
+            child:const SignIn(),
+          ),
         );
       case Routes.signUp:
         return MaterialPageRoute(
