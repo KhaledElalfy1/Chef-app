@@ -6,6 +6,8 @@
     "forgetPassword":"هل نسيت كلمة المرور؟",
     "signIn":"تسجيل دخول",
     "dontHaveAccount":"ليس لديك حساب؟",
-    "signUp":"إنشاء حساب"
+    "signUp":"إنشاء حساب",
+    "enterValidEmail":"قم بإدخال عنوان بريد صالح",
+    "enterValidPassword":"قم بإدخال كلمة سر صحيحه"
 
 }

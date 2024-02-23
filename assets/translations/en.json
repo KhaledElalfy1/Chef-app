@@ -6,6 +6,8 @@
     "forgetPassword":"Forget Password?",
     "signIn":"sign In",
     "dontHaveAccount":"Don't have an account?",
-    "signUp":"Sign Up"
+    "signUp":"Sign Up",
+    "enterValidEmail":"Enter Valid Email",
+    "enterValidPassword":"Enter Valid Password"
 
 }
