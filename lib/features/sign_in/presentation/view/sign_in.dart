@@ -5,6 +5,7 @@ import 'package:chef_app/core/widgets/lang_text_cubit.dart';
 import 'package:chef_app/features/sign_in/presentation/controller/sign_in/sign_in_cubit.dart';
 import 'package:chef_app/features/sign_in/presentation/view/widgets/sign_in_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
@@ -72,13 +73,22 @@ class SignIn extends StatelessWidget {
               ),
             ),
             Gap(50.h),
-            CustomElevatedButton(
-              onPressed: () {
-                if(SignInCubit.get(context).formKey.currentState!.validate()){
-                  
-                }
+            BlocBuilder<SignInCubit, SignInState>(
+              builder: (context, state) {
+                return state is SignInLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : CustomElevatedButton(
+                        onPressed: () {
+                          if (SignInCubit.get(context)
+                              .formKey
+                              .currentState!
+                              .validate()) {
+                            SignInCubit.get(context).signIn();
+                          }
+                        },
+                        text: AppStrings.signIn,
+                      );
               },
-              text: AppStrings.signIn,
             ),
             Gap(50.h),
             Row(

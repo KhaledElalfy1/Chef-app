@@ -3,6 +3,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/features/sign_in/data/model/sign_in_model.dart';
 import 'package:chef_app/features/sign_in/data/repo/sign_in_repo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'sign_in_state.dart';
@@ -29,17 +30,21 @@ class SignInCubit extends Cubit<SignInState> {
   }
 
   // sign in
-  void signIn({required String email, required String password}) async {
+  void signIn() async {
     emit(SignInLoading());
-    final result =
-        await sl<SignInRepo>().signIn(email: email, password: password);
+    final result = await sl<SignInRepo>()
+        .signIn(email: emailController.text, password: passwordController.text);
     result.fold(
-      (error) => emit(
-        SignInFailure(eMessage: error.eMessage),
-      ),
-      (signInModel) => emit(
-        SignInSuccess(signInModel: signInModel),
-      ),
+      (error) {
+        emit(SignInFailure(eMessage: error.eMessage));
+        debugPrint('FFFFFFFFFFFFFFFFFFFFFFf');
+      },
+      (signInModel) {
+        emit(
+          SignInSuccess(signInModel: signInModel),
+        );
+        debugPrint('SSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+      },
     );
   }
 }
