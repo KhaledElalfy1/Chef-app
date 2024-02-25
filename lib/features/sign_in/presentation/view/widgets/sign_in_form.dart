@@ -30,6 +30,7 @@ class SignInForm extends StatelessWidget {
                     }
                     return null;
                   },
+                  keyboardType: TextInputType.emailAddress,
                   hintText: 'Email',
                   textEditingController:
                       SignInCubit.get(context).emailController,
@@ -39,11 +40,11 @@ class SignInForm extends StatelessWidget {
                   builder: (context, state) {
                     return CustomTextFormFiled(
                       validator: (value) {
-                    if (value!.isEmpty || value.length<8) {
-                      return AppStrings.enterValidPassword.tr(context);
-                    }
-                    return null;
-                  },
+                        if (value!.isEmpty || value.length < 8) {
+                          return AppStrings.enterValidPassword.tr(context);
+                        }
+                        return null;
+                      },
                       obscureText: SignInCubit.get(context).visibility,
                       textEditingController:
                           SignInCubit.get(context).passwordController,
