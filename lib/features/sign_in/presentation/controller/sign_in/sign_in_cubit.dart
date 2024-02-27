@@ -1,3 +1,5 @@
+import 'package:chef_app/core/database/API/end_points.dart';
+import 'package:chef_app/core/database/cache/cache_helper.dart';
 import 'package:chef_app/core/services/server_locator.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/features/sign_in/data/model/sign_in_model.dart';
@@ -37,13 +39,11 @@ class SignInCubit extends Cubit<SignInState> {
     result.fold(
       (error) {
         emit(SignInFailure(eMessage: error.eMessage));
-        debugPrint('FFFFFFFFFFFFFFFFFFFFFFf');
       },
-      (signInModel) {
-        emit(
-          SignInSuccess(signInModel: signInModel),
-        );
-        debugPrint('SSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+      (signInModel) async {
+       await sl<CacheHelper>()
+            .saveData(key: ApiKeys.token, value: signInModel.token);
+        emit(SignInSuccess(signInModel: signInModel));
       },
     );
   }

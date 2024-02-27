@@ -1,3 +1,5 @@
+import 'package:chef_app/core/helpers/extentions.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
@@ -73,7 +75,20 @@ class SignIn extends StatelessWidget {
               ),
             ),
             Gap(50.h),
-            BlocBuilder<SignInCubit, SignInState>(
+            BlocConsumer<SignInCubit, SignInState>(
+              listener: (context, state) {
+                if (state is SignInFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: CubitText(
+                        data: AppStrings.errorMessage,
+                      ),
+                    ),
+                  );
+                } else if (state is SignInSuccess) {
+                  context.pushReplacementNamed(Routes.addMeal);
+                }
+              },
               builder: (context, state) {
                 return state is SignInLoading
                     ? const Center(child: CircularProgressIndicator())

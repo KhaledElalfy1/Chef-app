@@ -8,6 +8,7 @@
     "dontHaveAccount":"Don't have an account?",
     "signUp":"Sign Up",
     "enterValidEmail":"Enter Valid Email",
-    "enterValidPassword":"Enter Valid Password"
+    "enterValidPassword":"Enter Valid Password",
+    "errorMessage":"Invalid user signIn"
 
 }
