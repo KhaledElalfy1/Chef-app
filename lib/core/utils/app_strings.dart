@@ -9,4 +9,5 @@ abstract class AppStrings {
   static const String signUp = "signUp";
   static const String enterValidEmail = "enterValidEmail";
   static const String enterValidPassword = "enterValidPassword";
+  static const String errorMessage = "errorMessage";
 }

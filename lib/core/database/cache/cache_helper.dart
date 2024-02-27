@@ -7,6 +7,10 @@ class CacheHelper {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
+  Future saveData({required String key, required String value}) async{
+   await sharedPreferences.setString(key, value);
+  }
+
   String? getDataString({
     required String key,
   }) {

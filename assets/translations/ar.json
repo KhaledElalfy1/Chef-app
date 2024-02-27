@@ -8,6 +8,7 @@
     "dontHaveAccount":"ليس لديك حساب؟",
     "signUp":"إنشاء حساب",
     "enterValidEmail":"قم بإدخال عنوان بريد صالح",
-    "enterValidPassword":"قم بإدخال كلمة سر صحيحه"
+    "enterValidPassword":"قم بإدخال كلمة سر صحيحه",
+    "errorMessage":"خطأ فى تسجيل الدخول"
 
 }
