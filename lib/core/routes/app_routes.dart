@@ -5,6 +5,7 @@ import 'package:chef_app/features/profile/presentation/view/change_password.dart
 import 'package:chef_app/features/profile/presentation/view/profile.dart';
 import 'package:chef_app/features/profile/presentation/view/setting.dart';
 import 'package:chef_app/features/profile/presentation/view/update_profile.dart';
+import 'package:chef_app/features/reset_password/presentation/controller/cubit/reset_password_cubit.dart';
 import 'package:chef_app/features/reset_password/presentation/view/reset_password.dart';
 import 'package:chef_app/features/reset_password/presentation/view/send_code.dart';
 import 'package:chef_app/features/sign_in/presentation/controller/sign_in/sign_in_cubit.dart';
@@ -62,12 +63,18 @@ class AppRouts {
 
       case Routes.resetPassword:
         return MaterialPageRoute(
-          builder: (_) => const ResetPassword(),
+          builder: (_) => BlocProvider(
+            create: (context) => ResetPasswordCubit(),
+            child: const ResetPassword(),
+          ),
         );
 
       case Routes.sendCode:
         return MaterialPageRoute(
-          builder: (_) => const SendCode(),
+          builder: (_) => BlocProvider(
+            create: (context) => ResetPasswordCubit(),
+            child: const SendCode(),
+          ),
         );
 
       case Routes.setting:
@@ -79,7 +86,7 @@ class AppRouts {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => SignInCubit(),
-            child:const SignIn(),
+            child: const SignIn(),
           ),
         );
       case Routes.signUp:
