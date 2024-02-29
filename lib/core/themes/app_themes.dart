@@ -8,9 +8,11 @@ ThemeData themeData() {
     primaryColor: AppColor.primary,
     scaffoldBackgroundColor: AppColor.white,
     appBarTheme: const AppBarTheme(
-      color: AppColor.primary,
-      centerTitle: true,
-    ),
+        color: AppColor.primary,
+        centerTitle: true,
+        iconTheme: IconThemeData(
+          color: AppColor.white,
+        )),
     textTheme: TextTheme(
       displayLarge: boldStyle(),
       displayMedium: regularStyle(),

@@ -9,6 +9,12 @@
     "signUp":"إنشاء حساب",
     "enterValidEmail":"قم بإدخال عنوان بريد صالح",
     "enterValidPassword":"قم بإدخال كلمة سر صحيحه",
-    "errorMessage":"خطأ فى تسجيل الدخول"
+    "errorMessage":"خطأ فى تسجيل الدخول",
+    "enterYourEmailToReset":"قم بإدخال الاميل لإرسال رمز إعادة التعيين",
+    "sendCode":"إرسال الرمز",
+    "create New Password":"إنشاء كلمة مرور جديدة",
+    "resetPassword":"إعادة تعيين كلمة المرور"
+
+
 
 }

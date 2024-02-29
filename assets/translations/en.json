@@ -9,6 +9,10 @@
     "signUp":"Sign Up",
     "enterValidEmail":"Enter Valid Email",
     "enterValidPassword":"Enter Valid Password",
-    "errorMessage":"Invalid user signIn"
+    "errorMessage":"Invalid user signIn",
+    "enterYourEmailToReset":"Enter Your mail and we will send you code to rest your password",
+    "sendCode":"Send Code",
+    "createNewPassword":"create New Password",
+    "resetPassword":"Reset Password"
 
 }

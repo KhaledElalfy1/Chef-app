@@ -10,4 +10,8 @@ abstract class AppStrings {
   static const String enterValidEmail = "enterValidEmail";
   static const String enterValidPassword = "enterValidPassword";
   static const String errorMessage = "errorMessage";
+  static const String enterYourEmailToReset = "enterYourEmailToReset";
+  static const String sendCode = "sendCode";
+  static const String createNewPassword = "createNewPassword";
+  static const String resetPassword = "resetPassword";
 }
