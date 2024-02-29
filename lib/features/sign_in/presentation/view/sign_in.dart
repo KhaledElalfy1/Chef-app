@@ -62,7 +62,9 @@ class SignIn extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.sendCode);
+                  },
                   child: const CubitText(
                     data: AppStrings.forgetPassword,
                     style: TextStyle(
