@@ -1,3 +1,5 @@
+import 'package:chef_app/core/helpers/extentions.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
@@ -51,7 +53,11 @@ class SendCode extends StatelessWidget {
                 textEditingController: TextEditingController(),
               ),
               Gap(24.h),
-              CustomElevatedButton(onPressed: () {}, text: AppStrings.sendCode),
+              CustomElevatedButton(
+                  onPressed: () {
+                    context.pushNamed(Routes.resetPassword);
+                  },
+                  text: AppStrings.sendCode),
             ],
           ),
         ),
