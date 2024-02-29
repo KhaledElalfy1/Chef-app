@@ -51,6 +51,7 @@ class SendCode extends StatelessWidget {
               CustomTextFormFiled(
                 hintText: 'E-mail',
                 textEditingController: TextEditingController(),
+                keyboardType: TextInputType.emailAddress,
               ),
               Gap(24.h),
               CustomElevatedButton(

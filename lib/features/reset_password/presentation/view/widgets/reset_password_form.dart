@@ -32,6 +32,7 @@ class ResetPasswordForm extends StatelessWidget {
         Gap(24.h),
         CustomTextFormFiled(
           hintText: 'Send Code',
+          keyboardType: TextInputType.number,
           textEditingController: TextEditingController(),
         ),
       ],
