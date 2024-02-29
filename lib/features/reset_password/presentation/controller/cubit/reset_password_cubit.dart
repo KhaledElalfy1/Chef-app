@@ -12,15 +12,15 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController codeController = TextEditingController();
-  Icon visibilityICon = const Icon(Icons.visibility);
-  bool isVisable = false;
+  Icon visibilityICon = const Icon(Icons.visibility_off);
+  bool isVisable = true;
 
   // change visibility
   void changeVisibility() {
     isVisable = !isVisable;
     visibilityICon = isVisable
-        ? const Icon(Icons.visibility)
-        : const Icon(Icons.visibility_off);
+        ? const Icon(Icons.visibility_off)
+        : const Icon(Icons.visibility);
     emit(ResetPasswordChangeVisibility());
   }
 }

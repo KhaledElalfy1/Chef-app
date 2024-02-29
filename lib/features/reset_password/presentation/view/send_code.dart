@@ -5,6 +5,7 @@ import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
 import 'package:chef_app/core/widgets/custom_text_form_filed.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
+import 'package:chef_app/features/reset_password/presentation/controller/cubit/reset_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -50,7 +51,7 @@ class SendCode extends StatelessWidget {
               Gap(24.h),
               CustomTextFormFiled(
                 hintText: 'E-mail',
-                textEditingController: TextEditingController(),
+                textEditingController: ResetPasswordCubit.get(context).emailController,
                 keyboardType: TextInputType.emailAddress,
               ),
               Gap(24.h),

@@ -63,14 +63,17 @@ class AppRouts {
 
       case Routes.resetPassword:
         return MaterialPageRoute(
-          builder: (_) => const ResetPassword(),
+          builder: (_) => BlocProvider(
+            create: (context) => ResetPasswordCubit(),
+            child: const ResetPassword(),
+          ),
         );
 
       case Routes.sendCode:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => ResetPasswordCubit(),
-            child:const SendCode(),
+            child: const SendCode(),
           ),
         );
 

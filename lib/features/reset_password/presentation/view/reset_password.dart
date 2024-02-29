@@ -2,6 +2,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
+import 'package:chef_app/features/reset_password/presentation/controller/cubit/reset_password_cubit.dart';
 import 'package:chef_app/features/reset_password/presentation/view/widgets/reset_password_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,7 +50,11 @@ class ResetPassword extends StatelessWidget {
              const ResetPasswordForm(),
               Gap(24.h),
               CustomElevatedButton(
-                  onPressed: () {}, text: AppStrings.resetPassword),
+                  onPressed: () {
+                    if(ResetPasswordCubit.get(context).createPasswordFormKey.currentState!.validate()){
+                      
+                    }
+                  }, text: AppStrings.resetPassword),
             ],
           ),
         ),
