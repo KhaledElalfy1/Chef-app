@@ -43,13 +43,13 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }
 
   // reset password method
-  Future resetPassword({required String code}) async {
+  Future resetPassword() async {
     emit(ResetPasswordLoading());
     var result = await sl<ResetPasswordRepo>().resetPassword(
         email: emailController.text,
         password: passwordController.text,
         confirmPassword: confirmPasswordController.text,
-        code: code);
+        code: codeController.text);
 
     result.fold(
       (error) {

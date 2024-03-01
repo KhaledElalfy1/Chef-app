@@ -70,7 +70,7 @@ class ResetPasswordForm extends StatelessWidget {
           CustomTextFormFiled(
             validator: (value) {
               if (value!.isEmpty) {
-                return 'password can\'t be empty';
+                return 'Enter your code';
               }
               return null;
             },
