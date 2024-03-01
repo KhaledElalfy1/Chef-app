@@ -17,6 +17,9 @@ class SendCodeRepo {
       return right(SuccessModel.fromJson(response).message);
     } on ServerException catch (e) {
       return left(e.errorModel.eMessage);
+    } catch (e) {
+      // Handle other exceptions (e.g., network errors)
+      return Left("Error: ${e.toString()}");
     }
   }
 }

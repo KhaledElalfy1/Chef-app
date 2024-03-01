@@ -4,6 +4,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
+import 'package:chef_app/core/widgets/loading_widget.dart';
 import 'package:chef_app/features/sign_in/presentation/controller/sign_in/sign_in_cubit.dart';
 import 'package:chef_app/features/sign_in/presentation/view/widgets/sign_in_form.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +94,7 @@ class SignIn extends StatelessWidget {
               },
               builder: (context, state) {
                 return state is SignInLoading
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const CustomLoadingWidget()
                     : CustomElevatedButton(
                         onPressed: () {
                           if (SignInCubit.get(context)
