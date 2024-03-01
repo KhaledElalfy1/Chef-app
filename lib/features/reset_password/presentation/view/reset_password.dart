@@ -51,11 +51,12 @@ class ResetPassword extends StatelessWidget {
               Gap(24.h),
               CustomElevatedButton(
                   onPressed: () {
-                    debugPrint(
-                        ResetPasswordCubit.get(context).emailController.text);
-                    // if(ResetPasswordCubit.get(context).createPasswordFormKey.currentState!.validate()){
-
-                    // }
+                    if (ResetPasswordCubit.get(context)
+                        .createPasswordFormKey
+                        .currentState!
+                        .validate()) {
+                      
+                    }
                   },
                   text: AppStrings.resetPassword),
             ],

@@ -1,4 +1,5 @@
 import 'package:chef_app/core/services/server_locator.dart';
+import 'package:chef_app/features/reset_password/data/repo/reset_password_repo.dart';
 import 'package:chef_app/features/reset_password/data/repo/send_code_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     emit(ResetPasswordChangeVisibility());
   }
 
-  // send code repo
+  // send code method
 
   Future sendCode() async {
     emit(SendCodeLoading());
@@ -37,6 +38,25 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
       },
       (successMessage) {
         emit(SendCodeSuccess(successMessage: successMessage));
+      },
+    );
+  }
+
+  // reset password method
+  Future resetPassword({required String code}) async {
+    emit(ResetPasswordLoading());
+    var result = await sl<ResetPasswordRepo>().resetPassword(
+        email: emailController.text,
+        password: passwordController.text,
+        confirmPassword: confirmPasswordController.text,
+        code: code);
+
+    result.fold(
+      (error) {
+        emit(ResetPasswordFailure(eMessage: error));
+      },
+      (successMessage) {
+        emit(ResetPasswordSuccess(successMessage: successMessage));
       },
     );
   }
