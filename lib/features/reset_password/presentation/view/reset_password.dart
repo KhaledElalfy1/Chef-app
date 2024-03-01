@@ -47,14 +47,17 @@ class ResetPassword extends StatelessWidget {
                 ),
               ),
               Gap(24.h),
-             const ResetPasswordForm(),
+              const ResetPasswordForm(),
               Gap(24.h),
               CustomElevatedButton(
                   onPressed: () {
-                    if(ResetPasswordCubit.get(context).createPasswordFormKey.currentState!.validate()){
-                      
-                    }
-                  }, text: AppStrings.resetPassword),
+                    debugPrint(
+                        ResetPasswordCubit.get(context).emailController.text);
+                    // if(ResetPasswordCubit.get(context).createPasswordFormKey.currentState!.validate()){
+
+                    // }
+                  },
+                  text: AppStrings.resetPassword),
             ],
           ),
         ),
@@ -62,5 +65,3 @@ class ResetPassword extends StatelessWidget {
     );
   }
 }
-
-

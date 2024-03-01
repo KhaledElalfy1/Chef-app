@@ -3,9 +3,9 @@ import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
-import 'package:chef_app/core/widgets/custom_text_form_filed.dart';
 import 'package:chef_app/core/widgets/lang_text_cubit.dart';
 import 'package:chef_app/features/reset_password/presentation/controller/cubit/reset_password_cubit.dart';
+import 'package:chef_app/features/reset_password/presentation/view/widgets/email_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -49,15 +49,16 @@ class SendCode extends StatelessWidget {
                 ),
               ),
               Gap(24.h),
-              CustomTextFormFiled(
-                hintText: 'E-mail',
-                textEditingController: ResetPasswordCubit.get(context).emailController,
-                keyboardType: TextInputType.emailAddress,
-              ),
+            const EmailForm(),
               Gap(24.h),
               CustomElevatedButton(
                   onPressed: () {
-                    context.pushNamed(Routes.resetPassword);
+                    if (ResetPasswordCubit.get(context)
+                        .emailFormKey
+                        .currentState!
+                        .validate()) {
+                      context.pushNamed(Routes.resetPassword);
+                    }
                   },
                   text: AppStrings.sendCode),
             ],
