@@ -21,6 +21,12 @@ class ResetPasswordForm extends StatelessWidget {
               return Column(
                 children: [
                   CustomTextFormFiled(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'password can\'t be empty';
+                      }
+                      return null;
+                    },
                     hintText: 'New Password',
                     obscureText: ResetPasswordCubit.get(context).isVisable,
                     textEditingController:
@@ -34,6 +40,17 @@ class ResetPasswordForm extends StatelessWidget {
                   ),
                   Gap(24.h),
                   CustomTextFormFiled(
+                    validator: (value) {
+                      if (ResetPasswordCubit.get(context)
+                              .confirmPasswordController
+                              .text !=
+                          ResetPasswordCubit.get(context)
+                              .passwordController
+                              .text) {
+                        return 'two passwords don\'t match';
+                      }
+                      return null;
+                    },
                     hintText: 'Confirm Password',
                     obscureText: ResetPasswordCubit.get(context).isVisable,
                     textEditingController: ResetPasswordCubit.get(context)
@@ -51,6 +68,12 @@ class ResetPasswordForm extends StatelessWidget {
           ),
           Gap(24.h),
           CustomTextFormFiled(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Enter your code';
+              }
+              return null;
+            },
             hintText: 'Send Code',
             keyboardType: TextInputType.number,
             textEditingController:

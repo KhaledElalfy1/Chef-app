@@ -4,21 +4,27 @@ import 'package:chef_app/core/errors/error.dart';
 import 'package:chef_app/core/services/server_locator.dart';
 import 'package:dartz/dartz.dart';
 
-class SendCodeRepo {
-  Future<Either<String, String>> sendCode({required String email}) async {
+class ResetPasswordRepo {
+  Future<Either<String, String>> resetPassword(
+      {required String email,
+      required String password,
+      required String confirmPassword,
+      required String code}) async {
     try {
-      final response = await sl<ApiConsumer>().post(
-        EndPoints.sendCode,
+      final response = await sl<ApiConsumer>().patch(
+        EndPoints.changeForgottenPassword,
         data: {
           ApiKeys.email: email,
+          ApiKeys.password: password,
+          ApiKeys.confirmPassword: confirmPassword,
+          ApiKeys.code: code,
         },
       );
       return right(response[ApiKeys.message]);
     } on ServerException catch (e) {
       return left(e.errorModel.eMessage);
     } catch (e) {
-      // Handle other exceptions (e.g., network errors)
-      return Left("Error: ${e.toString()}");
+      return left(e.toString());
     }
   }
 }

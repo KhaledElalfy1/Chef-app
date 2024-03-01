@@ -4,6 +4,20 @@ sealed class ResetPasswordState {}
 
 final class ResetPasswordInitial extends ResetPasswordState {}
 
+final class ResetPasswordLoading extends ResetPasswordState {}
+
+final class ResetPasswordSuccess extends ResetPasswordState {
+  final String successMessage;
+
+  ResetPasswordSuccess({required this.successMessage});
+}
+
+final class ResetPasswordFailure extends ResetPasswordState {
+  final String eMessage;
+
+  ResetPasswordFailure({required this.eMessage});
+}
+
 final class SendCodeLoading extends ResetPasswordState {}
 
 final class SendCodeSuccess extends ResetPasswordState {
@@ -17,11 +31,5 @@ final class SendCodeFailure extends ResetPasswordState {
 
   SendCodeFailure({required this.eMessage});
 }
-
-final class ResetPasswordLoading extends ResetPasswordState {}
-
-final class ResetPasswordSuccess extends ResetPasswordState {}
-
-final class ResetPasswordFailure extends ResetPasswordState {}
 
 final class ResetPasswordChangeVisibility extends ResetPasswordState {}
