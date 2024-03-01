@@ -7,6 +7,7 @@ class EndPoints {
   static const String changeForgottenPassword =
       'chef/change-forgotten-password';
   static const String updateChef = 'chef/update';
+  static const String sendCode = 'chef/send-code';
   static const String logOut = 'chef/logout';
   static const String addMeal = 'meal/add-to-menu';
   static const String updateMeal = 'chef/update-meal/64a6e3ea0f8c2b74e0eb2d77';
