@@ -1,3 +1,5 @@
+import 'package:chef_app/core/helpers/extentions.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_elevated_button.dart';
@@ -53,18 +55,16 @@ class ResetPassword extends StatelessWidget {
               Gap(24.h),
               BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
                 listener: (context, state) {
-                  if(state is ResetPasswordSuccess){
+                  if (state is ResetPasswordSuccess) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                     SnackBar(
-                      content: Text(state.successMessage)
-                    ),
-                  );
-                  }else if(state is ResetPasswordFailure){
+                      SnackBar(content: Text(state.successMessage)),
+                    );
+                    context.pushNamedAndRemoveUntil(Routes.signIn,predicate: (route)=>false);
+                  } else if (state is ResetPasswordFailure) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                     SnackBar(
-                      content: Text(state.eMessage)
-                    ),
-                  );
+                      SnackBar(content: Text(state.eMessage)),
+                    );
+                    context.pushNamedAndRemoveUntil(Routes.signIn,predicate: (route)=>false);
                   }
                 },
                 builder: (context, state) {
