@@ -1,5 +1,6 @@
 import 'package:chef_app/core/services/server_locator.dart';
 import 'package:chef_app/features/change_language/presentation/view/change_lang.dart';
+import 'package:chef_app/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:chef_app/features/home/presentation/view/home.dart';
 import 'package:chef_app/features/menu/presentation/view/add_meal.dart';
 import 'package:chef_app/features/menu/presentation/view/menu.dart';
@@ -50,7 +51,10 @@ class AppRouts {
         );
       case Routes.home:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) =>  BlocProvider(
+            create: (context) => HomeCubit(),
+            child:const HomeScreen(),
+          ),
         );
 
       case Routes.changePassword:
@@ -79,7 +83,7 @@ class AppRouts {
       case Routes.sendCode:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) =>  sl<ResetPasswordCubit>(),
+            create: (context) => sl<ResetPasswordCubit>(),
             child: const SendCode(),
           ),
         );
