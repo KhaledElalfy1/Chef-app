@@ -14,4 +14,6 @@ abstract class AppStrings {
   static const String sendCode = "sendCode";
   static const String createNewPassword = "createNewPassword";
   static const String resetPassword = "resetPassword";
+  static const String menu = "menu";
+  static const String profile = "profile";
 }

@@ -13,6 +13,8 @@
     "enterYourEmailToReset":"Enter Your mail and we will send you code to rest your password",
     "sendCode":"Send Code",
     "createNewPassword":"create New Password",
-    "resetPassword":"Reset Password"
+    "resetPassword":"Reset Password",
+    "profile":"Profile",
+    "menu":"Menu"
 
 }
