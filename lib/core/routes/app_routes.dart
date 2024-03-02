@@ -1,5 +1,6 @@
 import 'package:chef_app/core/services/server_locator.dart';
 import 'package:chef_app/features/change_language/presentation/view/change_lang.dart';
+import 'package:chef_app/features/home/presentation/view/home.dart';
 import 'package:chef_app/features/menu/presentation/view/add_meal.dart';
 import 'package:chef_app/features/menu/presentation/view/menu.dart';
 import 'package:chef_app/features/profile/presentation/view/change_password.dart';
@@ -32,6 +33,7 @@ class Routes {
 
   static const String addMeal = '/addMeal';
   static const String menu = '/menu';
+  static const String home = '/home';
 }
 
 class AppRouts {
@@ -45,6 +47,10 @@ class AppRouts {
       case Routes.addMeal:
         return MaterialPageRoute(
           builder: (_) => const AddMeal(),
+        );
+      case Routes.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
 
       case Routes.changePassword:
